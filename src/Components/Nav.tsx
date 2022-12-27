@@ -9,13 +9,13 @@ const Nav = () => {
         <h1 className="text-3xl font-press-start">E-STORE</h1>
       </div>
       <div className="flex items-center gap-4">
-        <Link >
+        <Link to='/' >
           <h1>Home</h1>
         </Link>
-        <Link>
+        <Link to='catalog'>
           <h1>Products</h1>
         </Link>
-        <Link>
+        <Link to='check-out'>
           <AiOutlineShoppingCart className="text-3xl"/>
         </Link>
       </div>
