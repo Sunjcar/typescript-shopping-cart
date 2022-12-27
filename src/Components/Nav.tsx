@@ -3,7 +3,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const Nav = () => {
   return (
-    <div className="h-[15vh] flex items-center bg-slate-200 justify-around">
+    <div className="flex items-center justify-around text-white min-h-10 bg-neutral-800">
       <div className="flex items-center gap-4 pl-8">
         <img src="https://img.icons8.com/clouds/100/null/store-front.png" />
         <h1 className="text-3xl font-press-start">E-STORE</h1>
