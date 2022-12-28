@@ -1,9 +1,32 @@
-export const Product : React.FC = (): JSX.Element => {
-    return(
-        <div className="flex flex-wrap items-center justify-center flex-1">
-            <div className=" w-full h-[10rem]">
-                <img className="max-h-[15rem] " src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"/>
+import { Fragment, useEffect, useReducer } from "react"
+import { Catalog } from "../Components/Catalog"
+import { ctx } from "../Interfaces/globalTypes"
+import { initialState, reducerFn } from "../Reducer"
+
+export const Product= () : JSX.Element => {
+    const [state, dispatch] = useReducer(reducerFn, initialState)
+
+
+    useEffect(() => {
+        fetch('https://fakestoreapi.com/products')
+            .then(res => res.json())
+            .then(data => dispatch({ type: "ADD_PRODUCTS", payload: data }))
+    }, [])
+    return (
+        <ctx.Provider value={state}>
+            <div className="grid items-center flex-1 gap-4 pl-8 md:grid-cols-5">
+                {
+                state.products.length ? (
+                    <>
+                    {state.products.map( product => (
+                    <Catalog key={product.id} image={product.image} name={product.name} /> 
+                    ))}
+                    </>
+                ) : (
+                    <h2>Loading ... </h2>
+                )
+                }
             </div>
-        </div>
+        </ctx.Provider>
     )
 }
