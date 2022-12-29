@@ -14,12 +14,12 @@ export const Product= () : JSX.Element => {
     }, [])
     return (
         <ctx.Provider value={state}>
-            <div className="grid items-center flex-1 gap-4 pl-8 md:grid-cols-5">
+            <div className="grid items-center flex-1 gap-[4rem] mt-[4rem ] md:grid-cols-4 p-12 mx-auto">
                 {
                 state.products.length ? (
                     <>
                     {state.products.map( product => (
-                    <Catalog key={product.id} image={product.image} name={product.name} /> 
+                    <Catalog key={product.id} image={product.image} title={product.title} price={product.price} /> 
                     ))}
                     </>
                 ) : (

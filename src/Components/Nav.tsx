@@ -10,10 +10,10 @@ const Nav = () => {
       </div>
       <div className="flex items-center gap-4">
         <Link to='/' >
-          <h1>Home</h1>
+          <h1 className="hover:-translate-y-1 hover:scale-110">Home</h1>
         </Link>
         <Link to='catalog'>
-          <h1>Products</h1>
+          <h1 className=" hover:-translate-y-1 hover:scale-110">Products</h1>
         </Link>
         <Link to='check-out'>
           <AiOutlineShoppingCart className="text-3xl"/>

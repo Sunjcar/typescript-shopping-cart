@@ -1,7 +1,7 @@
 import { createContext } from "react";
 
 export interface ProductInterface {
-    name: string;
+    title: string;
     price: number;
     image: string;
     id: number
