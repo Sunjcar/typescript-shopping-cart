@@ -15,7 +15,7 @@ const Nav = () => {
         <Link to='catalog'>
           <h1 className=" hover:-translate-y-1 hover:scale-110">Products</h1>
         </Link>
-        <Link to='check-out'>
+        <Link to='cart'>
           <AiOutlineShoppingCart className="text-3xl"/>
         </Link>
       </div>
