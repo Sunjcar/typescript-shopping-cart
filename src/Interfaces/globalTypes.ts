@@ -1,30 +1,63 @@
-import React, { createContext } from "react";
+import { Context, createContext, Dispatch } from "react";
+import { initialState } from "../Reducer";
 
-export interface ProductInterface {
-    title: string;
-    price: number;
-    image: string;
-    rating: {
-        rate: number;
-    };
-    description:string;
-    id: number;
+export interface ChangeQuantityInterface{
+  id: number;
+  quantity: number
 }
 
-export interface StateInterface {
-    products: ProductInterface []
-    shoppingCart: ProductInterface[];
+export interface RoutesInterface{
+  current: string;
+  history: string;
 }
 
-export interface ActionInterface{
-    type: string;
-    payload: unknown;
-  }
-
-export interface ProductProps {
-    title: string;
-    image: string;
-    price: number;
+interface RatingInterface{
+  rate: number;
+  count: number;
 }
 
-export const ctx = createContext<StateInterface | null>(null)
+export interface ProductInterface{
+  id: number;
+  category: string;
+  description: string;
+  image: string;
+  price: number;
+  rating: RatingInterface;
+  title: string;
+  quantity?: number;
+  added?: boolean
+}
+
+export interface StateInterface{
+  products: Array<ProductInterface>,
+  filteredItems: Array<ProductInterface>,
+  shoppingCart: Array<ProductInterface>,
+  searching: string,
+  categories: Array<string>,
+  current: string,
+  history: string,
+  isSearching: boolean,
+  filterAt: string,
+  totalAmount: number,
+  error: boolean,
+  loading: boolean
+}
+
+export type ActionInterface = {
+  type: string,
+  payload?: 
+    | ProductInterface[] 
+    | string 
+    | number 
+    | ChangeQuantityInterface
+    | RoutesInterface
+}
+
+export interface PageProps {
+  state: StateInterface;
+  dispatch?: Dispatch<ActionInterface>;
+  ctx?: Context<StateInterface>;
+}
+
+
+  export const ctx: Context<StateInterface> = createContext(initialState())
