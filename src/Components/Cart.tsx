@@ -23,7 +23,7 @@ export const Cart = ({ state, dispatch }: PageProps) => {
             })
 
             setTotalAmount({
-                total: Math.round(total)
+                total: Math.round(total * 100)/ 100
             })
         }
     }, [shoppingCart])
@@ -32,7 +32,7 @@ export const Cart = ({ state, dispatch }: PageProps) => {
         <section className="Cart">
             {shoppingCart.length ? (
                 <section className="flex flex-col">
-                    <article className="Cart__products">
+                    <article className="flex flex-col gap-4 p-4">
                         {shoppingCart.map(product => (
                             <CartProduct
                                 key={product.id}
@@ -43,20 +43,20 @@ export const Cart = ({ state, dispatch }: PageProps) => {
                                 dispatch={dispatch as React.Dispatch<ActionInterface>}
                                 id={product.id}
                             />
+
                         ))}
+                        <hr></hr>
                     </article>
 
                     <article className="Cart__info">
-                        <div className="Cart__total">
-                            <div className="flex flex-col gap-8 items-end pr-[15.5rem]">
-                                <h2>Total: ${totalAmount.total}</h2>
-                                <button className="relative flex items-center justify-start p-4 mb-4 overflow-hidden transition-all bg-[#1da1f2] hover:bg-white group">
-                                    <span className="absolute top-0 left-0 w-0 h-0 transition-all duration-500 ease-out bg-purple-600 rounded group-hover:w-full group-hover:h-full -z-1"></span>
-                                    <span className="z-10 w-full text-black transition-colors duration-300 ease-in-out group-hover:text-white">
-                                        Check-Out
-                                    </span>
-                                </button>
-                            </div>
+                        <div className="flex flex-col gap-8 items-end pr-[12.5rem]">
+                            <h2>Total: ${totalAmount.total}</h2>
+                            <button className="relative flex items-center justify-start p-4 mb-4 overflow-hidden transition-all bg-[#1da1f2] hover:bg-white group">
+                                <span className="absolute top-0 left-0 w-0 h-0 transition-all duration-500 ease-out bg-purple-600 rounded group-hover:w-full group-hover:h-full -z-1"></span>
+                                <span className="z-10 w-full text-black transition-colors duration-300 ease-in-out group-hover:text-white">
+                                    Check-Out
+                                </span>
+                            </button>
                         </div>
                     </article>
                 </section>
