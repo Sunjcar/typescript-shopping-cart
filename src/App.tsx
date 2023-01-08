@@ -8,11 +8,11 @@ import { useEffect, useReducer, useState } from "react"
 import { initialState, reducer } from "./Reducer"
 import { ctx, StateInterface } from "./Interfaces/globalTypes"
 import { Cart } from "./Components/Cart"
+import { About } from "./Components/About"
 
-
-
-const App = (): JSX.Element => {
+const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState())
+
 
   useEffect(() => {
     fetchProducts()
@@ -27,17 +27,18 @@ const App = (): JSX.Element => {
 
   return (
     <ctx.Provider value={state}>
-      <div className="flex flex-col h-[100vh]">
+      <div className="flex flex-col flex-1 min-h-[100vh]">
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="catalog" element={<Product state={state as StateInterface}
             dispatch={dispatch}
             ctx={ctx} />} />
-          <Route path='products/:title' element={<Details
+          <Route path='products/:title' element={<Details  
             state={state as StateInterface}
             dispatch={dispatch} />} />
           <Route path="/shopping-cart" element={<Cart state={state as StateInterface} dispatch={dispatch} />} />
+          <Route path='/about' element={<About/>}/>
         </Routes>
         <Footer />
       </div>
