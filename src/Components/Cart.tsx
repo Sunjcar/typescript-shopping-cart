@@ -45,11 +45,10 @@ export const Cart = ({ state, dispatch }: PageProps) => {
                             />
 
                         ))}
-                        <hr></hr>
                     </article>
 
                     <article className="Cart__info">
-                        <div className="flex flex-col gap-8 items-end pr-[12.5rem]">
+                        <div className="flex flex-col gap-8 items-end pr-[2.9rem]">
                             <h2>Total: ${totalAmount.total}</h2>
                             <button className="relative flex items-center justify-start p-4 mb-4 overflow-hidden transition-all bg-[#1da1f2] hover:bg-white group">
                                 <span className="absolute top-0 left-0 w-0 h-0 transition-all duration-500 ease-out bg-purple-600 rounded group-hover:w-full group-hover:h-full -z-1"></span>

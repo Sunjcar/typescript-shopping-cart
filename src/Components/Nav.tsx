@@ -25,7 +25,7 @@ useEffect(() => {
         <h1 className="text-3xl font-press-start">E-STORE</h1>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-4">
-        <Link to='/' >
+        <Link to='/typescript-shopping-cart' >
           <h1 className="hover:-translate-y-1 hover:scale-110">Home</h1>
         </Link>
         <Link to='catalog'>
@@ -36,15 +36,15 @@ useEffect(() => {
         </Link>
       </div>
       <Link to='shopping-cart'>
-          <div className='relative flex items-center justify-around w-20 gap-4 list-none cursor-pointer hover:-translate-y-1 hover:scale-110'>
-            <li className='flex items-center justify-center p-4 font-bold text-black bg-white rounded-3xl '><BsCartFill/> 
-            </li>
+          <div className='relative flex items-center justify-around gap-4 list-none cursor-pointer hover:-translate-y-1 hover:scale-110'>
+            <span className='flex items-center justify-center p-4 font-bold text-black bg-white rounded-3xl '><BsCartFill/> 
+            </span>
             {shoppingCart.length > 0 &&
               <span className='flex justify-center items-center
-                    absolute left-0 bottom-0 
-                    rounded-full w-1.2 h-1 
-                    text-xs text-black font-bold bg-cyan-400 p-[.4rem]
-                    '>
+              absolute left-0 bottom-0 
+              rounded-full w-[1.2rem] h-[1rem]
+              text-xs text-black font-bold bg-cyan-400 
+              '>
                 {shoppingCart.length}
               </span>
             }

@@ -30,7 +30,7 @@ const App = () => {
       <div className="flex flex-col flex-1 min-h-[100vh]">
         <Nav />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/typescript-shopping-cart" element={<Home />} />
           <Route path="catalog" element={<Product state={state as StateInterface}
             dispatch={dispatch}
             ctx={ctx} />} />
