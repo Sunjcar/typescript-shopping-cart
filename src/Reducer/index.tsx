@@ -1,3 +1,5 @@
+import { configureStore } from "@reduxjs/toolkit";
+
 import { ActionInterface, ChangeQuantityInterface, ProductInterface, RoutesInterface, StateInterface } from "../Interfaces/globalTypes";
 
 
@@ -6,12 +8,12 @@ export const initialState = (): StateInterface => {
     products: [],
     filteredItems: [],
     shoppingCart: [],
-    categories: ["All items"],
+    categories: ["All Products"],
     current: "/",
     history: "",
     searching: "",
     isSearching: false,
-    filterAt: "All items",
+    filterAt: "All Products",
     totalAmount: 0,
     error: false,
     loading: true
@@ -100,7 +102,7 @@ export function reducer(state: StateInterface, action: ActionInterface): StateIn
       }
 
     case "FILTER":
-      state.filteredItems = payload === "All products" ? state.products : state.products.filter(item => item.category === payload)
+      state.filteredItems = payload === "All Products" ? state.products : state.products.filter(item => item.category === payload)
       return { ...state, filterAt: payload as string }
 
     case "DISPLAY_PRODUCTS":

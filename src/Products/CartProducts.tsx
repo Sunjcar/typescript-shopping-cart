@@ -29,14 +29,14 @@ export const CartProduct = ({
   }
 
   return (
-    <div className="flex items-center justify-between gap-4">
+    <div className="flex items-center justify-between flex-1 gap-4">
       <div className="flex gap-4 md:w-[30rem]">
         <img className='flex w-[10rem] h-[10rem] rounded-xl' src={img} alt={title} />
       </div>
 
       <div className="flex">
         <h2 className='flex-wrap w-[2rem] md:flex-nowrap md:w-[15rem]' >{title}</h2>
-        <h2> {quantity}</h2>
+        <h2 className="font-extrabold "> {quantity}</h2>
       </div>
       <button defaultValue={quantity} onClick={handleAddToCart}>
         <AiOutlinePlus />

@@ -4,7 +4,7 @@ import { NavigateFunction, useNavigate } from "react-router-dom";
 import { ActionInterface, PageProps } from "../Interfaces/globalTypes";
 import { CartProduct } from "../Products/CartProducts";
 import { ITotalAmount, totalAmountInitial } from "../Products/types";
-import { Button } from "../Utilities/Button";
+
 
 
 
@@ -29,7 +29,7 @@ export const Cart = ({ state, dispatch }: PageProps) => {
     }, [shoppingCart])
 
     return (
-        <section className="Cart">
+        <section className="flex flex-col items-center flex-1">
             {shoppingCart.length ? (
                 <section className="flex flex-col">
                     <article className="flex flex-col gap-4 p-4">

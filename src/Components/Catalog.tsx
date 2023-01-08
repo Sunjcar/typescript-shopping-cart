@@ -29,7 +29,7 @@ export const Catalog = ({ id,
 
 
     return (
-        <div className="flex flex-col items-center h-full rounded-xl ">
+        <div className="flex flex-col items-center flex-1 h-full rounded-xl ">
             <div onClick={handleNavigate} className="h-[20rem] p-12 m-auto">
                 <img className="block w-full h-[10rem] hover:-translate-y-1 hover:scale-40 cursor-pointer " src={image} alt={name} />
             </div>
@@ -42,5 +42,3 @@ export const Catalog = ({ id,
         </div>
     )
 }
-
-
