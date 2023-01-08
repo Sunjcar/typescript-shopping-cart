@@ -24,7 +24,7 @@ export interface ProductInterface{
   price: number;
   rating: RatingInterface;
   title: string;
-  quantity?: number;
+  quantity: number;
   added?: boolean
 }
 
