@@ -3,6 +3,7 @@ import { NavigateFunction, useNavigate } from "react-router-dom";
 import { ctx } from "../Interfaces/globalTypes";
 import { ButtonCategoryProps, ButtonProps, ButtonSmallProps } from "./types";
 
+
 export const Button: React.FC<ButtonProps> = ({
     ProductId,
     dispatch,
@@ -27,8 +28,6 @@ export const Button: React.FC<ButtonProps> = ({
         }
     }
 
-
-
     return (
         <button style={style} id="button" onClick={handleClick} className=" relative flex items-center justify-start p-4 overflow-hidden transition-all bg-[#1da1f2] hover:bg-white group">
             <span className="absolute top-0 left-0 w-0 h-0 transition-all duration-500 ease-out bg-purple-600 rounded group-hover:w-full group-hover:h-full -z-1"></span>
@@ -51,16 +50,21 @@ export const ButtonCategory: React.FC<ButtonCategoryProps> = ({
     const navigate: NavigateFunction = useNavigate()
     const state = useContext(ctx)
     const { filterAt, searching } = state
+
     const handleClick = () => {
         if (to) navigate(to)
         dispatch({ type: "FILTER", payload: content })
     }
 
-    const styles: string = `Button-category ${((filterAt === content && !searching) && !to) && "chosen"}`
+    const capitalizeFirstLetter = (string: string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    const styles: string = ` ${((filterAt === content && !searching))}`
 
     return (
         <button className={styles} onClick={handleClick}>
-            {content}
+            {capitalizeFirstLetter(content)}
         </button>
     )
 }
